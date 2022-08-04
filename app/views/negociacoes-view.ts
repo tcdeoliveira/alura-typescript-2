@@ -1,3 +1,5 @@
+import { Negociacoes } from "../models/negociacoes";
+
 export class NegociacoesView {
   private elemento: HTMLElement
   
@@ -5,11 +7,11 @@ export class NegociacoesView {
     this.elemento = document.querySelector(seletor);
   }
 
-  update(): void {
-    this.elemento.innerHTML = this.template();
+  update(model: Negociacoes): void {
+    this.elemento.innerHTML = this.template(model);
   }
 
-  template(): string {
+  template(model: Negociacoes): string {
     return `
       <table class="table table-hover table-bordered">
         <thead>
@@ -20,6 +22,15 @@ export class NegociacoesView {
           </tr>
         </thead>
         <tbody>
+          ${model.lista().map(negocicaco => {
+            return `
+              <tr>
+                <td></td>
+                <td>${negocicaco.quantidade}</td>
+                <td>${negocicaco.valor}</td>
+              </tr>
+            `;
+          }).join('')}
         </tbody>
       </table>
     `;
