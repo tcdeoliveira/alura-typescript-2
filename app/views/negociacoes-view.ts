@@ -1,11 +1,7 @@
 import { View } from "./view.js";
 import { Negociacoes } from "../models/negociacoes";
 
-export class NegociacoesView extends View {
-  
-  update(model: Negociacoes): void {
-    this.elemento.innerHTML = this.template(model);
-  }
+export class NegociacoesView extends View<Negociacoes> {  
 
   template(model: Negociacoes): string {
     return `
@@ -15,7 +11,7 @@ export class NegociacoesView extends View {
             <th>DATA</th>
             <th>QUANTIDADE</th>
             <th>VALOR</th>
-          </tr>
+          </tr> 
         </thead>
         <tbody>
           ${model.lista().map(negocicaco => {
