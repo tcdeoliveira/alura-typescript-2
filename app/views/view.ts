@@ -3,7 +3,7 @@ export abstract class View<T>{
     constructor(seletor: string) {
 
     }
-    update(model: T): void {
+    public update(model: T): void {
       const template = this.template(model);
       this.element.innerHTML = template;
     }
