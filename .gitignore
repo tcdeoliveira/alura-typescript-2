@@ -1,0 +1,12 @@
+/node_modules
+/servidor-api/node_modules
+.vscode
+package-lock.json
+
+# exclude everything
+dist/*
+
+# exception to the rule
+!dist/.gitkeep 
+!dist/index.html
+!dist/css/
